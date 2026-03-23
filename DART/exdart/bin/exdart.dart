@@ -2,10 +2,6 @@ import 'package:exdart/exdart.dart' as exdart;
 
 void main() {
   exemploAbstracao();
- 
-
-//oiiii
-
 
 
 }
