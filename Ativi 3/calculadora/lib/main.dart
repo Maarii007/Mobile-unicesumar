@@ -33,7 +33,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
   double num2 = 0;
   String operador = '';
 
-  List<String> historico = []; // ✅ histórico agora dentro da classe
+  List<String> historico = [];
 
   void onButtonClick(String valor) {
     setState(() {
@@ -72,8 +72,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                 num2 != 0 ? (num1 / num2).toString() : 'Erro';
             break;
         }
-
-        // ✅ salva no histórico
+        
         historico.add("$operacao = $display");
 
         return;
@@ -92,7 +91,6 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
       ),
       body: Column(
         children: [
-          // ✅ HISTÓRICO
           Expanded(
             child: ListView.builder(
               itemCount: historico.length,
@@ -104,11 +102,9 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
               },
             ),
           ),
-
-          // ✅ DISPLAY
+          
           DisplayWidget(texto: display),
 
-          // ✅ BOTÕES
           Expanded(
             child: Column(
               children: [
@@ -145,7 +141,6 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
   }
 }
 
-// ================= DISPLAY =================
 class DisplayWidget extends StatelessWidget {
   final String texto;
 
@@ -166,7 +161,6 @@ class DisplayWidget extends StatelessWidget {
   }
 }
 
-// ================= BOTÃO NÚMERO =================
 class BotaoNumero extends StatelessWidget {
   final String numero;
   final Function(String) onClick;
@@ -187,7 +181,6 @@ class BotaoNumero extends StatelessWidget {
   }
 }
 
-// ================= BOTÃO OPERAÇÃO =================
 class BotaoOperacao extends StatelessWidget {
   final String operacao;
   final Function(String) onClick;
